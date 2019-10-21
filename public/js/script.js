@@ -32,4 +32,12 @@ function modif(id){
     } else {
       x.type = "password";
     }
+    var y = document.getElementById('visible');
+    if (y.innerHTML === "afficher mot de passe") {
+      y.innerHTML = "cacher mot de passe";
+    } else {
+      y.innerHTML = "afficher mot de passe";
+    }
   }
+
+  
