@@ -15,6 +15,9 @@ class Controller{
     function affichage(){
         $gestion = new GestionMembres();
         $affichage = $gestion->gestionAffichage();
+        while($dataMembre = $affichage->fetch()){
+            $membres[]= new Membre($dataMembre);
+        }
         require 'view/gestion.php';
     }
 

@@ -14,16 +14,18 @@ ob_start();
             </tr>
         </thead>
         <tbody>
-        <?php while($membre = $affichage->fetch()) : ?>
-            <tr>
-                <td><?=$membre['id']?></td>
-                <td id="pseudo<?=$membre['id']?>"><?=$membre['pseudo']?></td>
-                <td id="email<?=$membre['id']?>"><?=$membre['email']?></td>
-                <td id="mdp<?=$membre['id']?>"><?=$membre['mdp']?></td> 
-                <td id="bouton<?=$membre['id']?>"><span class="btn btn-success" onclick="modif(<?=$membre['id']?>)" >modifier</span></td>    
-                <td><span onclick="confirmation(<?=$membre['id']?>)" class="btn btn-danger" >supprimer</span></td>            
+        <?php foreach($membres as $membre): ?>
+
+            <tr id="infos<?=$membre->getId()?>">
+                <td><?=$membre->getId()?></td>
+                <td id="pseudo<?=$membre->getId()?>"><?=$membre->getPseudo()?></td>
+                <td id="email<?=$membre->getId()?>"><?=$membre->getEmail()?></td>
+                <td id="mdp<?=$membre->getId()?>"><?=$membre->getMdp()?></td> 
+                <td id="bouton<?=$membre->getId()?>"><span class="btn btn-success boutonModif" onclick="modif(<?=$membre->getId()?>)" value="<?=$membre->getId()?>" >modifier</span></td>    
+                <td><span onclick="confirmation(<?=$membre->getId()?>)" class="btn btn-danger" >supprimer</span></td>            
             </tr>
-        <?php endwhile; ?>
+
+        <?php endforeach; ?>
         </tbody>
     </table>
 </form>  
